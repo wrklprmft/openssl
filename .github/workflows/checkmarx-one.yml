@@ -52,7 +52,7 @@ jobs:
           cx_tenant: ${{ secrets.CX_TENANT }} # This should be replaced by your tenant for Checkmarx One
           # additional_params: --scan-types sast --file-include *.dart,*.plist --threshold "sast-high=1;sast-medium=1;sast-low=1" --report-format sarif --output-path .
           #additional_params: --scan-types sast --file-filter '!**/util/**,!**/test/**,!**/demos/**,!**/external/**,!**/fuzz/**,!**/tools/**, !**/pyca.cryptography**/**' --report-format sarif --output-path .
-          additional_params: --scan-types sast --report-format sarif --output-path .
+          additional_params: --scan-types sast --file-filter '!**/util/**,!**/test/**,!**/demos/**!**/fuzz/**,!**/tools/**,!**/external/**' --report-format sarif --output-path .
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
